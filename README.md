@@ -5,64 +5,64 @@
 ![Data Source](https://img.shields.io/badge/Data-Kaggle-20BEFF?logo=kaggle)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> 使用 Python 与 pandas 对 **2024 年 YouTube 订阅数 Top 50 频道**进行完整的数据分析，从国家分布、语言、类别、品牌 vs 创作者等多维度探索全球最大 YouTube 频道的规律。
+An exploratory data analysis (EDA) of the **top 50 most-subscribed YouTube channels in 2024**, examining subscriber distribution across categories, countries, languages, and channel types (brand vs. independent creator).
 
 ---
 
-## 📊 分析报告预览
+## 📊 Analysis Report
 
 ![YouTube Analysis](output/youtube_analysis.png)
 
 ---
 
-## 🎯 核心问题
+## 🎯 Questions Explored
 
-| 问题 | 分析方法 |
-|------|----------|
-| 谁是订阅数第一的频道？ | Top 15 水平条形排行图 |
-| 哪个类别频道最多？订阅最高？ | 双轴柱线图 |
-| 这些频道来自哪些国家？ | 环形饼图 |
-| 哪种语言的频道最多？ | 水平条形图 |
-| 品牌频道 vs 个人创作者，谁更强？ | 箱线图 + 散点叠加 |
-| 印度 vs 美国频道实力对比？ | 散点对比图 |
+| Question | Method |
+|----------|--------|
+| Which channel has the most subscribers? | Top 15 ranked horizontal bar chart |
+| Which category has the most channels? Highest avg subscribers? | Dual-axis bar + line chart |
+| Where do these channels come from? | Donut chart by country |
+| What languages dominate? | Horizontal bar chart |
+| Do brand channels outperform independent creators? | Box plot + strip plot overlay |
+| How does India compare to the United States? | Scatter plot comparison |
 
 ---
 
-## 📂 项目结构
+## 📂 Project Structure
 
 ```
 youtube_analysis/
 ├── data/
-│   └── youtube_subscribers_data.csv   # 原始数据（Kaggle）
+│   └── youtube_subscribers_data.csv   # Raw dataset (from Kaggle)
 ├── output/
-│   ├── youtube_analysis.png           # 7 合 1 可视化报告
-│   └── category_summary.csv          # 分类汇总表
-├── analysis.py                        # 主分析脚本（含完整注释）
+│   ├── youtube_analysis.png           # 7-panel visualisation report
+│   └── category_summary.csv          # Aggregated summary table
+├── analysis.py                        # Main analysis script (fully commented)
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🔧 数据集字段
+## 🔧 Dataset Fields
 
-| 字段 | 说明 |
-|------|------|
-| `Name` | 频道名称 |
-| `Brand channel` | 是否为品牌/机构频道（Yes/No）|
-| `Subscribers (millions)` | 订阅数（单位：百万）|
-| `Primary language` | 主要语言 |
-| `Category` | 内容类别 |
-| `Country` | 频道所属国家 |
+| Field | Description |
+|-------|-------------|
+| `Name` | Channel name |
+| `Brand channel` | Whether the channel belongs to a company/brand (Yes/No) |
+| `Subscribers (millions)` | Subscriber count in millions |
+| `Primary language` | Main language of content |
+| `Category` | Content category |
+| `Country` | Channel's country of origin |
 
-数据来源：[Kaggle - YouTube Subscribers Data 2024](https://www.kaggle.com/datasets/rashminslnk/youtube-subscribers-data-2024)
+Data source: [Kaggle — YouTube Subscribers Data 2024](https://www.kaggle.com/datasets/rashminslnk/youtube-subscribers-data-2024)
 
 ---
 
-## 🚀 快速开始
+## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/你的用户名/youtube_analysis.git
+git clone https://github.com/your-username/youtube_analysis.git
 cd youtube_analysis
 pip install -r requirements.txt
 python analysis.py
@@ -70,32 +70,33 @@ python analysis.py
 
 ---
 
-## 📈 关键发现
+## 📈 Key Findings
 
-- 👑 **MrBeast** 以 **335M** 订阅数雄居第一，比第二名 T-Series 多出约 20%
-- 🇮🇳 **印度**以 17 个频道占据最多，**英语**是最主流的语言（21 个频道）
-- 🎭 **娱乐类**频道数量最多（21 个），平均订阅数 99.8M 也最高
-- 🏢 品牌频道（91.7M）与个人创作者（90.0M）均值几乎持平——个人影响力不输大机构
-- 🎵 **音乐类**总订阅 1424M，其中印度频道贡献了大部分
-
----
-
-## 🛠 技术栈
-
-- **pandas** — 数据读取、清洗、分组聚合
-- **matplotlib** — 多子图布局、双轴图
-- **seaborn** — 箱线图、散点叠加
+- 👑 **MrBeast** leads with **335M subscribers** — roughly 55M ahead of second-place T-Series
+- 🇮🇳 **India** dominates with **17 channels** in the Top 50, followed by the US (13)
+- 🎭 **Entertainment** is the largest category (21 channels) with the highest average subscribers (99.8M)
+- 🏢 Brand channels (91.7M avg) and independent creators (90.0M avg) are nearly equal — individual creators hold their own against large organisations
+- 🗣 **English** is the most common language (21 channels), with **Hindi** a strong second (15 channels)
+- 🎵 Despite having fewer channels, **Sports** channels average the highest subscribers per channel (105M)
 
 ---
 
-## 📝 分析步骤
+## 🛠 Tech Stack
 
-1. **读取数据** `pd.read_csv()`
-2. **数据探索** `.dtypes` `.describe()` `.value_counts()`
-3. **数据清洗** 标准化类别、国家字段；布尔化品牌字段
-4. **聚合分析** `groupby()` 多维度交叉统计
-5. **可视化** 7 张图表，双轴/箱线/散点全覆盖
-6. **洞察总结** 输出关键业务结论
+- **pandas** — data loading, cleaning, and aggregation
+- **matplotlib** — multi-panel layout, dual-axis charts
+- **seaborn** — box plots, strip plots, statistical visualisation
+
+---
+
+## 📝 Analysis Pipeline
+
+1. **Load** — `pd.read_csv()` with dtype inspection
+2. **Explore** — `.dtypes`, `.describe()`, `.value_counts()`
+3. **Clean** — normalise categories and countries; encode boolean flag for brand channels
+4. **Aggregate** — `groupby()` across multiple dimensions
+5. **Visualise** — 7 charts covering rankings, distributions, and comparisons
+6. **Summarise** — export insights and CSV summary table
 
 ---
 
