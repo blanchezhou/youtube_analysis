@@ -11,7 +11,7 @@ An exploratory data analysis (EDA) of the **top 50 most-subscribed YouTube chann
 
 ## 📊 Analysis Report
 
-![YouTube Analysis](output/youtube_analysis.png)
+![YouTube Analysis](youtube_analysis.png)
 
 ---
 
